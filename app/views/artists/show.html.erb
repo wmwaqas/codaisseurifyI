@@ -18,9 +18,12 @@
 <% if @artist.songs.any? %>
   <ul>
     <% @artist.songs.each do |song| %>
-      <li><%= song.name %></li>
+      <p><%= link_to song.name, song_path(song.id) %></p>
     <% end %>
   </ul>
 <% else %>
   <p>There are no songs for this artist.</p>
 <% end %>
+<hr>
+
+<%= link_to "[New Song]", new_song_path %>
