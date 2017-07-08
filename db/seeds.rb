@@ -48,8 +48,9 @@ year: 2007,
 rating: 7,
 artist: artist_2)
 
-
-
+# Photos
+photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/waqas/image/upload/v1499537959/ellie-goulding_lu9l8f.jpg", artist: artist_1)
+photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/waqas/image/upload/v1499537952/avril-lavigne_vnjfnb.jpg", artist: artist_2)
 
 
 
