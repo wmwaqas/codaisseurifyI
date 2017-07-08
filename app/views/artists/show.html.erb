@@ -1,7 +1,26 @@
 <h1><%= @artist.name %></h1>
 
 <!-- Photos -->
-<h4>Photos</h4>
+<h4></h4>
 <% @artist.photos.each do |photo| %>
   <%= image_tag photo.image %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<h4>List of Songs</h4>
+
+<% if @artist.songs.any? %>
+  <ul>
+    <% @artist.songs.each do |song| %>
+      <li><%= song.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no songs for this artist.</p>
 <% end %>
