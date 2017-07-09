@@ -55,6 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :test do
   gem 'capybara', '~> 2.9', '>= 2.9.1'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 gem 'carrierwave', '0.11.2'

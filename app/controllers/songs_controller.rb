@@ -50,6 +50,6 @@ class SongsController < ApplicationController
 
   private
     def song_params
-      song_params = params.require(:song).permit(:name, :album, :year, :rating)
+      song_params = params.require(:song).permit(:name, :album, :year, :rating, :artist_id)
     end
 end

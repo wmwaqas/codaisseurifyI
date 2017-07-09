@@ -4,7 +4,7 @@ class Song < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :album, presence: true
-  validates :year, length: { maximum: 4 }, allow_blank: true
-  validates :rating, length: { maximum: 2 }, allow_blank: true
+  validates :year, presence: true
+  validates :rating, presence: true
 
 end
