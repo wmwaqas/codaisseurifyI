@@ -67,3 +67,9 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 
 gem 'rails_12factor', group: :production
+
+# Use Bootstrap for styling
+gem 'bootstrap-sass', '~> 3.3.6'
+
+# Use jQuery for easier javascript
+gem 'jquery-rails', '~> 4.3.1'
