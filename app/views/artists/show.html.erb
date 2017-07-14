@@ -3,7 +3,7 @@
 <!-- Photos -->
 <h4></h4>
 <% @artist.photos.each do |photo| %>
-  <%= image_tag photo.image %>
+  <%= image_tag photo.image.thumbnail %>
 <% end %>
 
 <p id="notice"><%= notice %></p>
@@ -18,7 +18,7 @@
 <% if @artist.songs.any? %>
   <ul>
     <% @artist.songs.each do |song| %>
-      <p><%= link_to song.name, song_path(song.id) %></p>
+      <p><%= link_to song.name, artist_song_path(song.artist_id, song.id) %></p>
     <% end %>
   </ul>
 <% else %>
@@ -26,5 +26,5 @@
 <% end %>
 <hr>
 
-<%= link_to "[New Song]", new_song_path %>
+<%= link_to "[New Song]", new_artist_song_path(@artist.id) %>
 <%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>

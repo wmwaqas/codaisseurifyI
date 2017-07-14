@@ -5,6 +5,7 @@ class SongsController < ApplicationController
    end
 
   def new
+    @artist = Artist.find(params[:artist_id])
     @song = Song.new
   end
 
@@ -15,20 +16,22 @@ class SongsController < ApplicationController
   def create
     #song_params = params.require(:song).permit(:name, :album, :year, :rating)
 
-    @song = Song.new(song_params)
+    @song = Song.new(song_params.merge(artist_id: params[:artist_id]))
 
     if @song.save
-       redirect_to @song
+       redirect_to artist_path(params[:artist_id])
     else
        render 'new'
     end
   end
 
   def edit
+    @artist = Artist.find(params[:artist_id])
     @song = Song.find(params[:id])
   end
 
   def update
+      @artist = Artist.find(params[:artist_id])
       @song = Song.find(params[:id])
 
       #song_params = params.require(:song).permit(:name, :album, :year, :rating)
@@ -41,15 +44,16 @@ class SongsController < ApplicationController
     end
 
     def destroy
+    artist = Artist.find(params[:artist_id])
     @song = Song.find(params[:id])
 
     @song.destroy
 
-    redirect_to songs_path
+    redirect_to artist_path(@song.artist_id)
   end
 
   private
     def song_params
-      song_params = params.require(:song).permit(:name, :album, :year, :rating, :artist_id)
+      params.require(:song).permit(:name, :album, :year, :rating)
     end
 end
