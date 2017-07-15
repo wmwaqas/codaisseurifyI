@@ -7,5 +7,8 @@
 
 <hr>
 
-<%= link_to "[Edit]", edit_artist_song_path(@song.artist_id,@song.id) %>
-<%= link_to "[Delete]", artist_song_path(@song.artist_id, @song.id), method: :delete, data: { confirm: "Are you sure?" } %>
+<div class="actions">
+<%= link_to "All Artists", root_path, class: "btn btn-primary" %>
+<%= link_to "Edit", edit_artist_song_path(@song.artist_id,@song.id), class: "btn btn-primary" %>
+<%= link_to "Delete", artist_song_path(@song.artist_id, @song.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+</div>

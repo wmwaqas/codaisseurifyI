@@ -20,9 +20,10 @@
 
   <!-- <%= f.label :artist_id %>
   <%= f.collection_select(:artist_id, Artist.all, :id, :name) %> -->
-
-  <%= f.submit (@song.new_record? ? "Add" : "Update") %>
-
-
+  <br>
+  <br>
+  <div class="actions">
+  <%= f.submit (@song.new_record? ? "Add" : "Update"), class: "btn btn-primary" %>
+  </div>
 
 <% end %>

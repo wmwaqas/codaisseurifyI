@@ -2,7 +2,7 @@ class SongsController < ApplicationController
 
   def index
      @songs = Song.all
-   end
+  end
 
   def new
     @artist = Artist.find(params[:artist_id])
@@ -19,9 +19,13 @@ class SongsController < ApplicationController
     @song = Song.new(song_params.merge(artist_id: params[:artist_id]))
 
     if @song.save
-       redirect_to artist_path(params[:artist_id])
+      respond_to do |format|
+        format.html { redirect_to artist_path(params[:artist_id]) }
+        format.js
+      end
     else
-       render 'new'
+       format.html { render :new }
+       format.js
     end
   end
 
@@ -31,7 +35,7 @@ class SongsController < ApplicationController
   end
 
   def update
-      @artist = Artist.find(params[:artist_id])
+      artist = Artist.find(params[:artist_id])
       @song = Song.find(params[:id])
 
       #song_params = params.require(:song).permit(:name, :album, :year, :rating)
@@ -41,9 +45,9 @@ class SongsController < ApplicationController
       else
         render 'edit'
       end
-    end
+  end
 
-    def destroy
+  def destroy
     artist = Artist.find(params[:artist_id])
     @song = Song.find(params[:id])
 

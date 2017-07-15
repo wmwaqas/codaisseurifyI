@@ -26,5 +26,8 @@
 <% end %>
 <hr>
 
-<%= link_to "[New Song]", new_artist_song_path(@artist.id) %>
-<%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
+<div class="actions">
+<%= link_to "All Artists", root_path, class: "btn btn-primary" %>
+<%= link_to "New Song", new_artist_song_path(@artist.id), class: "btn btn-primary", remote: true %>
+<%= link_to "Delete", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+</div>
