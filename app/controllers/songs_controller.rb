@@ -52,8 +52,10 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
 
     @song.destroy
-
-    redirect_to artist_path(@song.artist_id)
+    respond_to do |format|
+      format.html { redirect_to artist_path(@song.artist_id) }
+      format.js
+    end
   end
 
   private
