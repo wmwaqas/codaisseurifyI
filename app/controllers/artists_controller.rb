@@ -7,13 +7,15 @@ class ArtistsController < ApplicationController
     @artists = Artist.all
   end
 
-  # GET /artists
-  # GET /artists.json
+  # GET /artists/1
+  # GET /artists/1.json
   def show
     @artist = Artist.find(params[:id])
     @songs = @artist.songs
   end
 
+  # DELETE /artist/1
+  # DELETE /artists/1.json
   def destroy
     @artist = Artist.find(params[:id])
 
