@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :songs
+    resources :artist do
+      resources :songs
+    end
   end
 
   # get "artists" => "artists#index"
